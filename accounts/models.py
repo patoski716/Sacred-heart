@@ -10,6 +10,12 @@ Gender = (
     ('Female', 'Female'),  
 )
 
+Terms = (
+    ('First', 'First'),
+    ('Second', 'Second'),
+    ('Third', 'Third'),  
+)
+
 class Profile(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL,on_delete=models.CASCADE)
     level = models.CharField(max_length=100)
@@ -34,6 +40,7 @@ class Payment(models.Model):
     first_name = models.CharField(max_length=200)
     last_name = models.CharField(max_length=200)
     email = models.EmailField(max_length=100)
+    term=models.CharField(max_length=200,null=False,choices=Terms, default='First')
     created_at = models.DateTimeField(auto_now_add=True)
     amount = models.DecimalField(max_digits=8, decimal_places=2)
     verified=models.BooleanField(default=False)

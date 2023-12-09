@@ -16,19 +16,18 @@
 
 {% if pick %}
 
-{% for picks in pick %}
-<!-- <p>First Name: {{ picks.first_name }}</p>
-    <p>Amount Paid: {{ picks.amount }}</p> -->
 
-    <section id="results" class="print-section">
+    <section id="results" >
         <div  class="container mt-3 m-3 mx-auto">
             <div class="body-container mt-md-3">
                 <div class="text-left row text-uppercase text-bold">
-                    <h5>Receipt ID:</h5>
-                    <h5 class="ml-1"><p style="font-weight: 600;" id="parcel_id">{{picks.id}}</p> </h5>
+                    <div class="container mb-5">
+                        <button onclick="printSection()" class="btn-gradient-yellow btn-hover-bluedark btn-fill-lg">Print Receipt</button>
+                    </div>
+                    
                 </div>
           
-                <div class="table_container">
+                <div class="table_container print-section">
                     <div class="row " >
                         <div class="col-md-12" >
                             <div class="card-body bg-primary text-dark py-1">
@@ -42,17 +41,27 @@
                                         <td class="table-secondary">Last Name</td>
                                         <td class="table-secondary">Email</td>
                                         <td class="table-secondary">Amount</td>
+                                        <td class="table-secondary">Term</td>
                                         <td class="table-secondary">Date</td>
+                                        
+
 
                                         </tr>
+{% for picks in pick %}
+
                                         <tr class="text-capitalize" id="{{picks.trackingid}}">
                                         
                                         <td class="table-secondary"><p style="font-weight: 600;">{{picks.first_name}}</p></td>
                                         <td class="table-secondary"><p style="font-weight: 600;">{{picks.last_name}}</p></td>
                                         <td class="table-secondary"><p style="font-weight: 600;">{{picks.email}}</p></td>
                                         <td class="table-secondary"><p style="font-weight: 600;">{{picks.amount}}</p></td>
+                                        <td class="table-secondary"><p style="font-weight: 600;">{{picks.term}}</p></td>
                                         <td class="table-secondary"><p style="font-weight: 600;">{{picks.created_at}}</p></td>
-                                        </tr>
+                                        
+                                        
+                                    </tr>
+{% endfor %}
+
                                     </tbody>
                                   </table>
                             </div>
@@ -64,8 +73,7 @@
     
     </section>
     
-{% endfor %}
-<button onclick="printSection()" class="btn-gradient-yellow btn-hover-bluedark btn-fill-lg">Print Receipt</button>
+
 
     <script>
         function printSection() {

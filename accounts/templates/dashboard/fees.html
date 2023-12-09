@@ -50,12 +50,24 @@
                                         <label>Email *</label>
                                         <input type="text" placeholder="" name="email" value="{{ request.user.username }}" class="form-control">
                                     </div>
-                                    
+
+                                    <div class="col-xl-3 col-lg-6 col-12 form-group">
+                                        <label>Term *</label>
+                                        <select
+                                        class="form-control" name="term">
+                                            <option value="">Select Term *</option>
+                                            <option value="First">First</option>
+                                            <option value="Second">Second</option>
+                                            <option value="Third">Third</option>
+                                            
+                                        </select>
+                                    </div>
+
                                     <div class="col-xl-3 col-lg-6 col-12 form-group">
                                         <label>Class *</label>
                                         <select id="selectField"
                                         class="form-control" name="level">
-                                            <option value="">Please Select Your Class *</option>
+                                            <option value="">Select Your Class *</option>
                                             <option value="100">Basic 1</option>
                                             <option value="200">Basic 2</option>
                                             <option value="300">Basic 3</option>
