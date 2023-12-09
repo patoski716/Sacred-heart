@@ -119,6 +119,6 @@ def verify_payment(request: HttpRequest, ref:str) -> HttpResponse:
     return render(request,'dashboard/success.html')
 
 def history(request):
-    pick = Payment.objects.order_by('-created_at')
+    pick = Payment.objects.order_by('-created_at').filter(user_id=request.user.id)
     context = {'pick': pick}
     return render(request,'dashboard/history.html',context)

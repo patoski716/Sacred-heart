@@ -9,14 +9,14 @@
         <li data-slotamount="7" data-transition="3dcurtain-horizontal" data-masterspeed="1000" data-saveperformance="on"> <img alt="" src="{% static 'images/dummy.png' %}" data-lazyload="{% static 'images/slider1.jpg' %}">
           <div class="caption lft large-title tp-resizeme slidertext2" data-x="center" data-y="170" data-speed="600" data-start="1600"><span> Sacred Heart School</span></div>
           <div class="caption lfb large-title tp-resizeme slidertext3" data-x="center" data-y="260" data-speed="600" data-start="2200"> Welcome to our school </div>
-          <div class="caption lfb large-title tp-resizeme slidertext4" data-x="330" data-y="350" data-speed="600" data-start="2800"> <a href="#"><i class="fas fa-calendar-alt"></i> Signup Today</a> </div>
-          <div class="caption lfb large-title tp-resizeme slidertext4 slidertext5" data-x="610" data-y="350" data-speed="600" data-start="3400"> <a href="#"><i class="far fa-user"></i> Login</a> </div>
+          <div class="caption lfb large-title tp-resizeme slidertext4" data-x="330" data-y="350" data-speed="600" data-start="2800"> <a href="{% url 'register' %}"><i class="fas fa-calendar-alt"></i> Signup Today</a> </div>
+          <div class="caption lfb large-title tp-resizeme slidertext4 slidertext5" data-x="610" data-y="350" data-speed="600" data-start="3400"> <a href="{% url 'login' %}"><i class="far fa-user"></i> Login</a> </div>
         </li>
         <li data-slotamount="7" data-transition="slotzoom-horizontal" data-masterspeed="1000" data-saveperformance="on"> <img alt="" src="{% static 'images/dummy.png' %}" data-lazyload="{% static 'images/slider.jpg' %}">
           <div class="caption lft large-title tp-resizeme slidertext2" data-x="center" data-y="170" data-speed="600" data-start="1600"><span> Sacred Heart School </span></div>
           <div class="caption lfb large-title tp-resizeme slidertext3" data-x="center" data-y="260" data-speed="600" data-start="2200"> We support our student to make the right decision for thier future.</div>
-          <div class="caption lfb large-title tp-resizeme slidertext4" data-x="330" data-y="350" data-speed="600" data-start="2800"> <a href="#"><i class="fas fa-user"></i> Signup Today</a> </div>
-          <div class="caption lfb large-title tp-resizeme slidertext4 slidertext5" data-x="610" data-y="350" data-speed="600" data-start="3400"> <a href="#"><i class="far fa-calendar-alt"></i> Login</a> </div>
+          <div class="caption lfb large-title tp-resizeme slidertext4" data-x="330" data-y="350" data-speed="600" data-start="2800"> <a href="{% url 'register' %}"><i class="fas fa-user"></i> Signup Today</a> </div>
+          <div class="caption lfb large-title tp-resizeme slidertext4 slidertext5" data-x="610" data-y="350" data-speed="600" data-start="3400"> <a href="{% url 'login' %}"><i class="far fa-calendar-alt"></i> Login</a> </div>
         </li>
       </ul>
     </div>

@@ -37,6 +37,7 @@ class Contact(models.Model):
         return self.name
 
 class Payment(models.Model):
+    user_id = models.IntegerField(blank=True)
     first_name = models.CharField(max_length=200)
     last_name = models.CharField(max_length=200)
     email = models.EmailField(max_length=100)
