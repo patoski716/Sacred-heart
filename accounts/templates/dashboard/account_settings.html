@@ -1,0 +1,45 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+{% block content %}
+{% load crispy_forms_tags %}
+
+<!-- Breadcubs Area Start Here -->
+<div class="breadcrumbs-area">
+    <h3>Account Setting</h3>
+    <ul>
+        <li>
+            <a href="{% url 'account_settings' %}">Home</a>
+        </li>
+        <li>Setting</li>
+    </ul>
+</div>
+<!-- Breadcubs Area End Here -->
+
+<!-- Account Settings Area Start Here -->
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="heading-layout1">
+                    <div class="item-title">
+                        <h3>My Profile</h3>
+                        <p>Complete your profile before you make school fees payment</p>
+                        <p>{% include 'include/aleart.html' %}</p>
+                    <form method='POST' enctype="multipart/form-data">
+                        {%csrf_token%}
+                        {{user_form|crispy}}
+                        {{profile_form|crispy}}          
+                        <button type="submit" class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark">Save</button>
+                    </form>
+                </div>
+                
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    
+{% endblock content %}
+    

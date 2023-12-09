@@ -1,0 +1,34 @@
+{% load static %}
+<!-- Page Area Start Here -->
+<div class="dashboard-page-one">
+    <!-- Sidebar Area Start Here -->
+   <div class="sidebar-main sidebar-menu-one sidebar-expand-md sidebar-color">
+       <div class="mobile-sidebar-header d-md-none">
+            <div class="header-logo">
+                <a href="{% url 'account_settings' %}"><img src="{% static 'assets/img/logo1.png' %}" alt="logo"></a>
+            </div>
+       </div>
+        <div class="sidebar-menu-content">
+            <ul class="nav nav-sidebar-menu sidebar-toggle-view">
+                <li class="nav-item sidebar-nav-item">
+                    <a href="{% url 'account_settings' %}" class="nav-link"><i class="flaticon-dashboard"></i><span>Dashboard</span></a>
+                   
+                </li>
+                <li class="nav-item sidebar-nav-item">
+                    <a href="{% url 'fees' %}" class="nav-link"><i class="flaticon-classmates"></i><span>School Fee</span></a>
+                    
+                </li>
+                <li class="nav-item sidebar-nav-item">
+                    <a href="{% url 'history' %}" class="nav-link"><i class="flaticon-multiple-users-silhouette"></i><span>Payment History</span></a>
+                    
+                </li>
+                <li class="nav-item sidebar-nav-item">
+                    <a href="{% url 'logout' %}" class="nav-link"><i class="flaticon-turn-off"></i><span>Logout</span></a>
+                    
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+    <!-- Sidebar Area End Here -->
+    <div class="dashboard-content-one">

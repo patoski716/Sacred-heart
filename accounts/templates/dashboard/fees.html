@@ -1,0 +1,121 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- Breadcubs Area Start Here -->
+<div class="breadcrumbs-area">
+    <h3>School Fees</h3>
+    <ul>
+        <li>
+            <a href="{% url 'account_settings' %}">Home</a>
+        </li>
+        <li>School Fees</li>
+    </ul>
+</div>
+<!-- Breadcubs Area End Here -->
+
+               <!-- Account Settings Area Start Here -->
+               <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="heading-layout1">
+                                <div class="item-title">
+                                    <h3>Enter Your Correct Data, Thank You !</h3>
+                                </div>
+                                <div class="dropdown">
+                                    <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+                                        aria-expanded="false">...</a>
+    
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        
+                                        <a class="dropdown-item" href="{% url 'fees'  %}"><i
+                                                class="fas fa-redo-alt text-orange-peel"></i>Refresh</a>
+                                    </div>
+                                </div>
+                            </div>
+                                <form action="." method="post">
+                                    {% csrf_token %}
+                                <div class="row">
+                                    
+                                    <div class="col-xl-3 col-lg-6 col-12 form-group">
+                                        <label>First Name *</label>
+                                        <input type="text" placeholder="" name="first_name" value="{{ request.user.first_name }}" class="form-control">
+                                    </div>
+                                    <div class="col-xl-3 col-lg-6 col-12 form-group">
+                                        <label>Last Name *</label>
+                                        <input type="text" placeholder="" name="last_name" value="{{ request.user.last_name }}" class="form-control">
+                                    </div>
+                                    <div class="col-xl-3 col-lg-6 col-12 form-group">
+                                        <label>Email *</label>
+                                        <input type="text" placeholder="" name="email" value="{{ request.user.username }}" class="form-control">
+                                    </div>
+                                    
+                                    <div class="col-xl-3 col-lg-6 col-12 form-group">
+                                        <label>Class *</label>
+                                        <select id="selectField"
+                                        class="form-control" name="level">
+                                            <option value="">Please Select Your Class *</option>
+                                            <option value="100">Basic 1</option>
+                                            <option value="200">Basic 2</option>
+                                            <option value="300">Basic 3</option>
+                                            <option value="400">Basic 4</option>
+                                            <option value="500">Basic 5</option>
+                                            <option value="600">Basic 6</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="col-xl-3 col-lg-6 col-12 form-group">
+                                        <label>Amount *</label>
+                                        <input type="amount"
+                                        class="form-control"
+                                        id="amount"
+                                        name="amount"
+                                        placeholder="Amount"
+                                        readonly>
+                                    </div>
+                                    
+                                    <div class="col-12 form-group mg-t-8">
+                                        <button type="submit" class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark">Submit</button>
+                                        
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Account Settings Area End Here -->
+
+
+
+            <script>
+                const selectField = document.getElementById("selectField");
+                const amount = document.getElementById("amount");
+          
+                selectField.addEventListener("change", function () {
+                  if (selectField.value === "100") {
+                    amount.value = "5000";
+                  } else if (selectField.value === "200") {
+                    amount.value = "7000";
+                  }
+                  else if (selectField.value === "300") {
+                    amount.value = "7000";
+                  }
+                  else if (selectField.value === "400") {
+                    amount.value = "9000";
+                  }
+                  else if (selectField.value === "500") {
+                    amount.value = "10000";
+                  }
+                  else if (selectField.value === "600") {
+                    amount.value = "12000";
+                  } else {
+                    amount.value = "";
+                  }
+                });
+              </script>
+
+    
+{% endblock content %}
+    

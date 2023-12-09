@@ -1,0 +1,109 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+{% block content %}
+<!-- Breadcubs Area Start Here -->
+<div class="breadcrumbs-area">
+    <h3>Payment History</h3>
+    <ul>
+        <li>
+            <a href="{% url 'history' %}">Home</a>
+        </li>
+        <li>Payment History</li>
+    </ul>
+</div>
+<!-- Breadcubs Area End Here -->
+
+
+{% if pick %}
+
+{% for picks in pick %}
+<!-- <p>First Name: {{ picks.first_name }}</p>
+    <p>Amount Paid: {{ picks.amount }}</p> -->
+
+    <section id="results" class="print-section">
+        <div  class="container mt-3 m-3 mx-auto">
+            <div class="body-container mt-md-3">
+                <div class="text-left row text-uppercase text-bold">
+                    <h5>Receipt ID:</h5>
+                    <h5 class="ml-1"><p style="font-weight: 600;" id="parcel_id">{{picks.id}}</p> </h5>
+                </div>
+          
+                <div class="table_container">
+                    <div class="row " >
+                        <div class="col-md-12" >
+                            <div class="card-body bg-primary text-dark py-1">
+                                <p><h3>Payment Details </h3></p>
+                            </div>
+                            <div class="table-responsive" id="table" >
+                                <table class="table" style="width: 100%">
+                                    <tbody id="logs_table">
+                                      <tr class="text-uppercase">
+                                        <td class="table-secondary">First Name</td>
+                                        <td class="table-secondary">Last Name</td>
+                                        <td class="table-secondary">Email</td>
+                                        <td class="table-secondary">Amount</td>
+                                        <td class="table-secondary">Date</td>
+
+                                        </tr>
+                                        <tr class="text-capitalize" id="{{picks.trackingid}}">
+                                        
+                                        <td class="table-secondary"><p style="font-weight: 600;">{{picks.first_name}}</p></td>
+                                        <td class="table-secondary"><p style="font-weight: 600;">{{picks.last_name}}</p></td>
+                                        <td class="table-secondary"><p style="font-weight: 600;">{{picks.email}}</p></td>
+                                        <td class="table-secondary"><p style="font-weight: 600;">{{picks.amount}}</p></td>
+                                        <td class="table-secondary"><p style="font-weight: 600;">{{picks.created_at}}</p></td>
+                                        </tr>
+                                    </tbody>
+                                  </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>  
+        </div>
+    
+    </section>
+    
+{% endfor %}
+<button onclick="printSection()" class="btn-gradient-yellow btn-hover-bluedark btn-fill-lg">Print Receipt</button>
+
+    <script>
+        function printSection() {
+    window.print();
+}
+    </script>
+
+    <style>
+        @media print {
+    body * {
+        visibility: hidden;
+    }
+
+    .print-section, .print-section * {
+        visibility: visible;
+    }
+
+    .print-section {
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+}
+
+    </style>
+{% else %}
+
+<p>You have not make any payment!</p>
+
+{% endif %}
+    
+
+
+    
+    
+
+
+
+    
+{% endblock content %}
+    

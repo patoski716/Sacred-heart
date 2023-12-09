@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- Inner Heading Start -->
+<div class="innerHeading-wrap">
+    <div class="container">
+      <h1>About Us</h1>
+    </div>
+  </div>
+  <!-- Inner Heading End --> 
+  
+  <!-- About Start -->
+  <div class="about-wrap " id="about">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="aboutImg"><img src="{% static 'images/teachers03.jpg' %}" alt=""></div>
+          <h2 style="color:#60c;">Mrs Gloria Nneji</h2>
+          <h3 style="color:#444;">Founding Director, Sacred Heart School</h3>        </div>
+        <div class="col-lg-8">
+          <div class="about_box">
+            <div class="title">
+              <h1>Welcome to<span> Sacred Heart School</span></h1>
+            </div>
+            <p>Welcome to Sacred Heart School, It is indeed heartwarming and worthy of note to have been in this field of education where lives are being nurtured from an early age and amazingly, you watch them transition into young accountable children.
+
+                Phinewaters Nursery and Primary School was born out of a passion to raise an articulate, competitive, smart, creative and intelligent children in a world class environment. Hence, we strive for excellence every passing year.
+                
+                The school is located on 58, Olatunji Idowu Street, Tarred road bus-stop, off Ago Palace way Okota, Lagos.</p>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- About End --> 
+    
+{% endblock content %}
+    

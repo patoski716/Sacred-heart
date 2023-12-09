@@ -1,0 +1,39 @@
+{% load static %}
+<!--Header Start-->
+<div class="header-wrap">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-3 col-md-12 navbar-light">
+          <div class="logo"> <a href="{% url 'home' %}"><img alt="" class="logo-default" src="{% static 'images/logo.png' %}"></a></div>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+        </div>
+        <div class="col-lg-6 col-md-12">
+          <div class="navigation-wrap" id="filters">
+            <nav class="navbar navbar-expand-lg navbar-light"> <a class="navbar-brand" href="#">Menu</a>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <button class="close-toggler" type="button" data-toggle="offcanvas"> <span><i class="fas fa-times-circle" aria-hidden="true"></i></span> </button>
+                <ul class="navbar-nav mr-auto">
+                  <li class="nav-item"> <a class="nav-link " href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a> </li>
+                  <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About Us</a></li>
+                  <li class="nav-item"><a class="nav-link" href="{% url 'staff' %}">Our Staff</a></li>
+                  <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contact Us</a></li>
+                </ul>
+              </div>
+            </nav>
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <div class="header_info">
+            
+            {% if user.is_authenticated %}
+            <div class="loginwrp"><a href="{% url 'account_settings' %}">Dashboard</a></div>
+            {% else %}
+            <div class="loginwrp"><a href="{% url 'login' %}">Login/Register</a></div>
+            {% endif %}
+              
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--Header End--> 

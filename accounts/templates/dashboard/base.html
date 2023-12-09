@@ -1,0 +1,70 @@
+{% load static %}
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Sacred Heart | Account Setting</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'assets/img/favicon.png' %}">
+    <!-- Normalize CSS -->
+    <link rel="stylesheet" href="{% static 'assets/css/normalize.css' %}">
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="{% static 'assets/css/main.css' %}">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+    <!-- Fontawesome CSS -->
+    <link rel="stylesheet" href="{% static 'assets/css/all.min.css' %}">
+    <!-- Flaticon CSS -->
+    <link rel="stylesheet" href="{% static 'assets/fonts/flaticon.css' %}">
+    <!-- Animate CSS -->
+    <link rel="stylesheet" href="{% static 'assets/css/animate.min.css' %}">
+    <!-- Select 2 CSS -->
+    <link rel="stylesheet" href="{% static 'assets/css/select2.min.css' %}">
+    <!-- Date Picker CSS -->
+    <link rel="stylesheet" href="{% static 'assets/css/datepicker.min.css' %}">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+    <!-- Modernize js -->
+    <script src="{% static 'assets/js/modernizr-3.6.0.min.js' %}"></script>
+</head>
+<body>
+
+<!-- Preloader Start Here -->
+<div id="preloader"></div>
+<!-- Preloader End Here -->
+<div id="wrapper" class="wrapper bg-ash">
+    
+    {% include 'dashboard/header.html' %}
+    {% include 'dashboard/sidebar.html' %}
+    {% block content %}
+        
+    {% endblock content %}
+    {% include 'dashboard/footer.html' %}
+
+    {% block scripts %}
+    {% endblock %}
+    </div>
+
+     <!-- jquery-->
+     <script src="{% static 'assets/js/jquery-3.3.1.min.js' %}"></script>
+     <!-- Plugins js -->
+     <script src="{% static 'assets/js/plugins.js' %}"></script>
+     <!-- Popper js -->
+     <script src="{% static 'assets/js/popper.min.js' %}"></script>
+     <!-- Bootstrap js -->
+     <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+     <!-- Scroll Up Js -->
+     <script src="{% static 'assets/js/jquery.scrollUp.min.js' %}"></script>
+     <!-- Select 2 Js -->
+     <script src="{% static 'assets/js/select2.min.js' %}"></script>
+     <!-- Date Picker Js -->
+     <script src="{% static 'assets/js/datepicker.min.js' %}"></script>
+     <!-- Custom Js -->
+     <script src="{% static 'assets/js/main.js' %}"></script>
+ 
+ </body>
+ </html>
+        

@@ -1,0 +1,62 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+{% block content %}
+<!-- Breadcubs Area Start Here -->
+<div class="breadcrumbs-area">
+    <h3>Account Setting</h3>
+    <ul>
+        <li>
+            <a href="{% url 'fees' %}">Home</a>
+        </li>
+        <li>Confirm Payment</li>
+    </ul>
+</div>
+<!-- Breadcubs Area End Here -->
+
+
+<div class="container mt-5 mb-5 text-center">
+    <h1>Confirm Payment: NGN {{payment.amount}}</h1>
+    
+    <script src="https://js.paystack.co/v1/inline.js"></script>
+    <button class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark"
+     id="django-paystack-button btn" onclick="payWithPaystack()">Confirm Payment</button>
+
+</div>
+    
+{% endblock  %}
+
+{% block scripts %}
+
+<script>
+function payWithPaystack() {
+    let currency= "NGN";
+    let plan = "";
+    let ref = "{{payment.ref}}";
+    let obj = {
+        key: "{{paystack_public_key}}",
+        email:"{{payment.email}}",
+        amount:"{{payment.amount_value}}",
+        first_name:"{{payment.first_name}}",
+        last_name:"{{payment.last_name}}",
+
+        ref:ref,
+        callback: function(response){
+            window.location.href = "{% url 'verify-payment' payment.ref %}";
+            
+        }
+    }
+    if (Boolean(currency)){
+        obj.currency = currency.toUpperCase()
+    }
+    if (Boolean(plan)){
+        obj.plan = plan
+    }
+    var handler = PaystackPop.setup(obj);
+    handler.openIframe();
+    
+}
+</script>
+
+
+{% endblock %}
+    
