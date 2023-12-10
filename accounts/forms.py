@@ -22,4 +22,4 @@ class ProfileEditForm(forms.ModelForm):
 class PaymentForm(forms.ModelForm):
     class Meta:
         model=Payment
-        fields=('user_id','first_name', 'last_name',"amount","email","term",)
+        fields=('user_id','first_name', 'last_name',"amount","email","level","term",)

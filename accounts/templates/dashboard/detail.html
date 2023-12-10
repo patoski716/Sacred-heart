@@ -1,0 +1,96 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+{% block content %}
+<script>
+    function printSection() {
+window.print();
+}
+</script>
+
+<style>
+    @media print {
+body * {
+    visibility: hidden;
+}
+
+.print-section, .print-section * {
+    visibility: visible;
+}
+
+.print-section {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+}
+
+</style>
+<div class="invoice-container print-section">
+    <h2 class="text-center mb-4">School Fees Invoice</h2>
+    <div class="passport-container">
+        <!-- Replace the src attribute with the actual path or URL of the student's passport photo -->
+        <img src="{{ request.user.profile.student_picture.url }}" alt="Student Passport" class="passport-img">
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <h5>Student Information</h5>
+            <p><strong>Student Name:</strong> {{pick.first_name}} {{pick.last_name}}</p>
+            <p><strong>Student Email:</strong> {{pick.email}}</p>
+            <p><strong>Student Class:</strong> {{pick.level}}</p>
+            <p><strong>Student Term:</strong> {{pick.term}}</p>
+            
+            
+            <!-- Add more student information as needed -->
+        </div>
+        <div class="col-md-6 text-md-right">
+            <h5>Invoice Details</h5>
+            <p><strong>Invoice Number:</strong> INV2024/{{pick.id}}</p>
+            <p><strong>Date:</strong> {{pick.created_at}}</p>
+            
+            <!-- Add more invoice details as needed -->
+        </div>
+    </div>
+    <hr>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Description</th>
+                <th class="text-right">Amount</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Tuition Fee</td>
+                <td class="text-right">#{{pick.amount}}</td>
+            </tr>
+            
+            <!-- Add more fee items as needed -->
+        </tbody>
+        
+    </table>
+    <div class="text-center mt-4">
+        <button onclick="printSection()" class="btn-gradient-yellow btn-hover-bluedark btn-fill-lg">Print</button>
+    </div>
+</div>
+
+<style>
+    
+        .invoice-container {
+            max-width: 800px;
+            margin: auto;
+        }
+        .passport-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .passport-img {
+            max-width: 150px;
+            max-height: 150px;
+            border: 1px solid #ccc;
+            border-radius: 50%;
+        }
+
+</style>
+    
+{% endblock content %}
+    

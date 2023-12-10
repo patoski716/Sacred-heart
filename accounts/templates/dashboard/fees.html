@@ -39,12 +39,16 @@
                                 <div class="row">
                                     {% if user.is_authenticated %}
                                     <input type="hidden" name="user_id" value="{{ user.id }}">
+                                   
                                     {% else %}
                                     <input type="hidden" name="user_id" value="0">
+                                    
                                     {% endif %}
+                                   
+
                                     <div class="col-xl-3 col-lg-6 col-12 form-group">
                                         <label>First Name *</label>
-                                        <input type="text" placeholder="" name="first_name" value="{{ request.user.first_name }}" class="form-control">
+                                        <input type="text" placeholder="" name="first_name" value="{{request.user.first_name }}" class="form-control">
                                     </div>
                                     <div class="col-xl-3 col-lg-6 col-12 form-group">
                                         <label>Last Name *</label>
@@ -72,12 +76,12 @@
                                         <select id="selectField"
                                         class="form-control" name="level">
                                             <option value="">Select Your Class *</option>
-                                            <option value="100">Basic 1</option>
-                                            <option value="200">Basic 2</option>
-                                            <option value="300">Basic 3</option>
-                                            <option value="400">Basic 4</option>
-                                            <option value="500">Basic 5</option>
-                                            <option value="600">Basic 6</option>
+                                            <option value="Basic 1">Basic 1</option>
+                                            <option value="Basic 2">Basic 2</option>
+                                            <option value="Basic 3">Basic 3</option>
+                                            <option value="Basic 4">Basic 4</option>
+                                            <option value="Basic 5">Basic 5</option>
+                                            <option value="Basic 6">Basic 6</option>
                                         </select>
                                     </div>
 
@@ -90,6 +94,13 @@
                                         placeholder="Amount"
                                         readonly>
                                     </div>
+                                    {% if user.is_authenticated %}
+
+                                    <div class="col-xl-3 col-lg-6 col-12 form-group">
+                                        
+                                        <input type="hidden" placeholder="" name="slug" value="{{ request.user.username }}" readonly class="form-control">
+                                    </div>
+                                    {% endif %}
                                     
                                     <div class="col-12 form-group mg-t-8">
                                         <button type="submit" class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark">Submit</button>
@@ -110,21 +121,21 @@
                 const amount = document.getElementById("amount");
           
                 selectField.addEventListener("change", function () {
-                  if (selectField.value === "100") {
+                  if (selectField.value === "Basic 1") {
                     amount.value = "5000";
-                  } else if (selectField.value === "200") {
+                  } else if (selectField.value === "Basic 2") {
                     amount.value = "7000";
                   }
-                  else if (selectField.value === "300") {
+                  else if (selectField.value === "Basic 3") {
                     amount.value = "7000";
                   }
-                  else if (selectField.value === "400") {
+                  else if (selectField.value === "Basic 4") {
                     amount.value = "9000";
                   }
-                  else if (selectField.value === "500") {
+                  else if (selectField.value === "Basic 5") {
                     amount.value = "10000";
                   }
-                  else if (selectField.value === "600") {
+                  else if (selectField.value === "Basic 6") {
                     amount.value = "12000";
                   } else {
                     amount.value = "";

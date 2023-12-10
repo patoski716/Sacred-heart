@@ -41,6 +41,7 @@ class Payment(models.Model):
     first_name = models.CharField(max_length=200)
     last_name = models.CharField(max_length=200)
     email = models.EmailField(max_length=100)
+    level = models.CharField(max_length=100,default='')
     term=models.CharField(max_length=200,null=False,choices=Terms, default='First')
     created_at = models.DateTimeField(auto_now_add=True)
     amount = models.DecimalField(max_digits=8, decimal_places=2)
@@ -51,7 +52,8 @@ class Payment(models.Model):
         ordering = ['-created_at']
     
     def __str__(self) -> str:
-        return f"Payment by :{self.email}"
+        # return f"Payment by :{self.email}"
+        return self.id
 
     def save(self, *args, **kwargs) -> None:
         while not self.ref:

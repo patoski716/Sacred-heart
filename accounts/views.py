@@ -122,3 +122,8 @@ def history(request):
     pick = Payment.objects.order_by('-created_at').filter(user_id=request.user.id)
     context = {'pick': pick}
     return render(request,'dashboard/history.html',context)
+
+def detail(request,pk):
+    pick = Payment.objects.get(pk=pk)
+    context={'pick':pick}
+    return render(request,'dashboard/detail.html',context)

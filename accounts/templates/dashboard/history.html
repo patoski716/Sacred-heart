@@ -21,13 +21,13 @@
         <div  class="container mt-3 m-3 mx-auto">
             <div class="body-container mt-md-3">
                 <div class="text-left row text-uppercase text-bold">
-                    <div class="container mb-5">
+                    <!-- <div class="container mb-5">
                         <button onclick="printSection()" class="btn-gradient-yellow btn-hover-bluedark btn-fill-lg">Print Receipt</button>
-                    </div>
+                    </div> -->
                     
                 </div>
           
-                <div class="table_container print-section">
+                <div class="table_container">
                     <div class="row " >
                         <div class="col-md-12" >
                             <div class="card-body bg-primary text-dark py-1">
@@ -40,23 +40,21 @@
                                         <td class="table-secondary">First Name</td>
                                         <td class="table-secondary">Last Name</td>
                                         <td class="table-secondary">Email</td>
-                                        <td class="table-secondary">Amount</td>
-                                        <td class="table-secondary">Term</td>
-                                        <td class="table-secondary">Date</td>
+                                        <td class="table-secondary"></td>
+                                        
                                         
 
 
                                         </tr>
-{% for picks in pick %}
+                                        {% for picks in pick %}
 
                                         <tr class="text-capitalize" id="{{picks.trackingid}}">
                                         
                                         <td class="table-secondary"><p style="font-weight: 600;">{{picks.first_name}}</p></td>
                                         <td class="table-secondary"><p style="font-weight: 600;">{{picks.last_name}}</p></td>
                                         <td class="table-secondary"><p style="font-weight: 600;">{{picks.email}}</p></td>
-                                        <td class="table-secondary"><p style="font-weight: 600;">{{picks.amount}}</p></td>
-                                        <td class="table-secondary"><p style="font-weight: 600;">{{picks.term}}</p></td>
-                                        <td class="table-secondary"><p style="font-weight: 600;">{{picks.created_at}}</p></td>
+                                        <td class="table-secondary"><a href="{% url 'detail' pk=picks.pk %}"  class="btn-gradient-yellow btn-hover-bluedark btn-fill-lg">View Details</button></td>
+                                        
                                         
                                         
                                     </tr>
@@ -75,30 +73,7 @@
     
 
 
-    <script>
-        function printSection() {
-    window.print();
-}
-    </script>
-
-    <style>
-        @media print {
-    body * {
-        visibility: hidden;
-    }
-
-    .print-section, .print-section * {
-        visibility: visible;
-    }
-
-    .print-section {
-        position: absolute;
-        left: 0;
-        top: 0;
-    }
-}
-
-    </style>
+    
 {% else %}
 
 <p>You have not make any payment!</p>
