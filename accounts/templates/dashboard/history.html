@@ -39,7 +39,8 @@
                                       <tr class="text-uppercase">
                                         <td class="table-secondary">First Name</td>
                                         <td class="table-secondary">Last Name</td>
-                                        <td class="table-secondary">Email</td>
+                                        <td class="table-secondary">Term</td>
+                                        <td class="table-secondary">Class</td>
                                         <td class="table-secondary"></td>
                                         
                                         
@@ -48,11 +49,12 @@
                                         </tr>
                                         {% for picks in pick %}
 
-                                        <tr class="text-capitalize" id="{{picks.trackingid}}">
+                                        <tr class="text-capitalize">
                                         
                                         <td class="table-secondary"><p style="font-weight: 600;">{{picks.first_name}}</p></td>
                                         <td class="table-secondary"><p style="font-weight: 600;">{{picks.last_name}}</p></td>
-                                        <td class="table-secondary"><p style="font-weight: 600;">{{picks.email}}</p></td>
+                                        <td class="table-secondary"><p style="font-weight: 600;">{{picks.term}}</p></td>
+                                        <td class="table-secondary"><p style="font-weight: 600;">{{picks.level}}</p></td>
                                         <td class="table-secondary"><a href="{% url 'detail' pk=picks.pk %}"  class="btn-gradient-yellow btn-hover-bluedark btn-fill-lg">View Details</button></td>
                                         
                                         
