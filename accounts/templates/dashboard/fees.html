@@ -14,134 +14,148 @@
 </div>
 <!-- Breadcubs Area End Here -->
 
-               <!-- Account Settings Area Start Here -->
-               <div class="row">
-                <div class="col-12">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="heading-layout1">
-                                <div class="item-title">
-                                    <h3>Enter Your Correct Data, Thank You !</h3>
-                                </div>
-                                <div class="dropdown">
-                                    <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown"
-                                        aria-expanded="false">...</a>
-    
-                                    <div class="dropdown-menu dropdown-menu-right">
-                                        
-                                        <a class="dropdown-item" href="{% url 'fees'  %}"><i
-                                                class="fas fa-redo-alt text-orange-peel"></i>Refresh</a>
-                                    </div>
-                                </div>
-                            </div>
-                                <form action="." method="post">
-                                    {% csrf_token %}
-                                <div class="row">
-                                    {% if user.is_authenticated %}
-                                    <input type="hidden" name="user_id" value="{{ user.id }}">
-                                   
-                                    {% else %}
-                                    <input type="hidden" name="user_id" value="0">
-                                    
-                                    {% endif %}
-                                   
+    <!-- Account Settings Area Start Here -->
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="heading-layout1">
+                    <div class="item-title">
+                        <h3>Enter Your Correct Data, Thank You !</h3>
+                    </div>
+                    <div class="dropdown">
+                        <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+                            aria-expanded="false">...</a>
 
-                                    <div class="col-xl-3 col-lg-6 col-12 form-group">
-                                        <label>First Name *</label>
-                                        <input type="text" placeholder="" name="first_name" value="{{request.user.first_name }}" class="form-control">
-                                    </div>
-                                    <div class="col-xl-3 col-lg-6 col-12 form-group">
-                                        <label>Last Name *</label>
-                                        <input type="text" placeholder="" name="last_name" value="{{ request.user.last_name }}" class="form-control">
-                                    </div>
-                                    <div class="col-xl-3 col-lg-6 col-12 form-group">
-                                        <label>Email *</label>
-                                        <input type="text" placeholder="" name="email" value="{{ request.user.username }}" class="form-control">
-                                    </div>
-
-                                    <div class="col-xl-3 col-lg-6 col-12 form-group">
-                                        <label>Term *</label>
-                                        <select
-                                        class="form-control" name="term">
-                                            <option value="">Select Term *</option>
-                                            <option value="First">First</option>
-                                            <option value="Second">Second</option>
-                                            <option value="Third">Third</option>
-                                            
-                                        </select>
-                                    </div>
-
-                                    <div class="col-xl-3 col-lg-6 col-12 form-group">
-                                        <label>Class *</label>
-                                        <select id="selectField"
-                                        class="form-control" name="level">
-                                            <option value="">Select Your Class *</option>
-                                            <option value="Basic 1">Basic 1</option>
-                                            <option value="Basic 2">Basic 2</option>
-                                            <option value="Basic 3">Basic 3</option>
-                                            <option value="Basic 4">Basic 4</option>
-                                            <option value="Basic 5">Basic 5</option>
-                                            <option value="Basic 6">Basic 6</option>
-                                        </select>
-                                    </div>
-
-                                    <div class="col-xl-3 col-lg-6 col-12 form-group">
-                                        <label>Amount *</label>
-                                        <input type="amount"
-                                        class="form-control"
-                                        id="amount"
-                                        name="amount"
-                                        placeholder="Amount"
-                                        readonly>
-                                    </div>
-                                    {% if user.is_authenticated %}
-
-                                    <div class="col-xl-3 col-lg-6 col-12 form-group">
-                                        
-                                        <input type="hidden" placeholder="" name="slug" value="{{ request.user.username }}" readonly class="form-control">
-                                    </div>
-                                    {% endif %}
-                                    
-                                    <div class="col-12 form-group mg-t-8">
-                                        <button type="submit" class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark">Submit</button>
-                                        
-                                    </div>
-                                </div>
-                            </form>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            
+                            <a class="dropdown-item" href="{% url 'fees'  %}"><i
+                                    class="fas fa-redo-alt text-orange-peel"></i>Refresh</a>
                         </div>
                     </div>
                 </div>
+                    <form action="." method="post">
+                        {% csrf_token %}
+                    <div class="row">
+                        {% if user.is_authenticated %}
+                        <input type="hidden" name="user_id" value="{{ user.id }}">
+                        
+                        {% else %}
+                        <input type="hidden" name="user_id" value="0">
+                        
+                        {% endif %}
+                        
+
+                        <div class="col-xl-3 col-lg-6 col-12 form-group">
+                            <label>First Name *</label>
+                            <input type="text" placeholder="" readonly name="first_name" value="{{request.user.first_name }}" class="form-control">
+                        </div>
+                        <div class="col-xl-3 col-lg-6 col-12 form-group">
+                            <label>Last Name *</label>
+                            <input type="text" placeholder="" readonly name="last_name" value="{{ request.user.last_name }}" class="form-control">
+                        </div>
+                        <div class="col-xl-3 col-lg-6 col-12 form-group">
+                            <label>Email *</label>
+                            <input type="text" placeholder="" readonly name="email" value="{{ request.user.username }}" class="form-control">
+                        </div>
+
+                        <div class="col-xl-3 col-lg-6 col-12 form-group">
+                            <label>Term *</label>
+                            <select
+                            class="form-control" name="term">
+                                <option value="">Select Term *</option>
+                                <option value="First">First</option>
+                                <option value="Second">Second</option>
+                                <option value="Third">Third</option>
+                                
+                            </select>
+                        </div>
+
+                        <div class="col-xl-3 col-lg-6 col-12 form-group">
+                            <label>Class *</label>
+                            <select id="selectField"
+                            class="form-control" name="student_class">
+                                <option value="">Select Your Class *</option>
+                                <option value="Basic 1">Basic 1</option>
+                                <option value="Basic 2">Basic 2</option>
+                                <option value="Basic 3">Basic 3</option>
+                                <option value="Basic 4">Basic 4</option>
+                                <option value="Basic 5">Basic 5</option>
+                                <option value="Basic 6">Basic 6</option>
+                            </select>
+                        </div>
+
+                        <div class="col-xl-3 col-lg-6 col-12 form-group">
+                            <label>Amount *</label>
+                            <input type="amount"
+                            class="form-control"
+                            id="amount"
+                            name="amount"
+                            placeholder="Amount"
+                            readonly>
+                        </div>
+                        {% if user.is_authenticated %}
+
+                        <div class="col-xl-3 col-lg-6 col-12 form-group">
+                            
+                            <input type="hidden" placeholder="" name="slug" value="{{ request.user.username }}" readonly class="form-control">
+                        </div>
+                        {% endif %}
+                        
+                        <div class="col-12 form-group mg-t-8">
+                            <button type="submit" class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark">Submit</button>
+                            
+                        </div>
+                    </div>
+                </form>
             </div>
-            <!-- Account Settings Area End Here -->
+        </div>
+    </div>
+</div>
+<!-- Account Settings Area End Here -->
+<!-- <script>
+    const selectField = document.getElementById("selectField");
+    const amount = document.getElementById("amount");
+    
 
+    selectField.addEventListener("change", function () {
+    {% for fees in school_fees %}
+    if (selectField.value === "{{fees.student_class}}") {
+        amount.value = "{{fees.amount}}";
+    } else {
+        amount.value = "";
+        }
+    {% endfor %}
+       });
+    </script> -->
 
+<script>
+    const selectField = document.getElementById("selectField");
+    const amount = document.getElementById("amount");
+    
 
-            <script>
-                const selectField = document.getElementById("selectField");
-                const amount = document.getElementById("amount");
-          
-                selectField.addEventListener("change", function () {
-                  if (selectField.value === "Basic 1") {
-                    amount.value = "5000";
-                  } else if (selectField.value === "Basic 2") {
-                    amount.value = "7000";
-                  }
-                  else if (selectField.value === "Basic 3") {
-                    amount.value = "7000";
-                  }
-                  else if (selectField.value === "Basic 4") {
-                    amount.value = "9000";
-                  }
-                  else if (selectField.value === "Basic 5") {
-                    amount.value = "10000";
-                  }
-                  else if (selectField.value === "Basic 6") {
-                    amount.value = "12000";
-                  } else {
-                    amount.value = "";
-                  }
-                });
-              </script>
+    selectField.addEventListener("change", function () {
+        if (selectField.value === "Basic 1") {
+        amount.value = "5000";
+        } else if (selectField.value === "Basic 2") {
+        amount.value = "7000";
+        }
+        else if (selectField.value === "Basic 3") {
+        amount.value = "7000";
+        }
+        else if (selectField.value === "Basic 4") {
+        amount.value = "9000";
+        }
+        else if (selectField.value === "Basic 5") {
+        amount.value = "10000";
+        }
+        else if (selectField.value === "Basic 6") {
+        amount.value = "12000";
+        } else {
+        amount.value = "";
+        }
+    });
+    </script>
 
     
 {% endblock content %}

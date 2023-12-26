@@ -16,9 +16,18 @@ Terms = (
     ('Third', 'Third'),  
 )
 
+Level = (
+    ('Basic 1', 'Basic 1'),
+    ('Basic 2', 'Basic 2'),
+    ('Basic 3', 'Basic 3'),
+    ('Basic 4', 'Basic 4'),
+    ('Basic 5', 'Basic 5'),
+    ('Basic 6', 'Basic 6'),  
+)
+
 class Profile(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL,on_delete=models.CASCADE)
-    level = models.CharField(max_length=100)
+    student_class = models.CharField(max_length=100,null=False,choices=Level, default='Basic 1')
     gender = models.CharField(max_length=200,null=False,choices=Gender, default='male')
     student_picture = models.ImageField(upload_to='profile_pictures/', blank=True, null=True)
 
@@ -41,7 +50,7 @@ class Payment(models.Model):
     first_name = models.CharField(max_length=200)
     last_name = models.CharField(max_length=200)
     email = models.EmailField(max_length=100)
-    level = models.CharField(max_length=100,default='')
+    student_class = models.CharField(max_length=100,default='')
     term=models.CharField(max_length=200,null=False,choices=Terms, default='First')
     created_at = models.DateTimeField(auto_now_add=True)
     amount = models.DecimalField(max_digits=8, decimal_places=2)
@@ -52,8 +61,8 @@ class Payment(models.Model):
         ordering = ['-created_at']
     
     def __str__(self) -> str:
-        # return f"Payment by :{self.email}"
-        return self.id
+        return f"Payment by :{self.email}"
+        # return self.user_id
 
     def save(self, *args, **kwargs) -> None:
         while not self.ref:
@@ -76,3 +85,11 @@ class Payment(models.Model):
             if self.verified:
                 return True
             return False
+
+class SchoolFees(models.Model):
+    student_class=models.CharField(max_length=100,null=False,choices=Level, default='Basic 1')
+    amount=models.DecimalField(max_digits=8, decimal_places=2)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.student_class

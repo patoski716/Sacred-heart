@@ -17,9 +17,9 @@ class UserEditForm(forms.ModelForm):
 class ProfileEditForm(forms.ModelForm):
     class Meta:
         model = Profile
-        fields = ['student_picture', 'level','gender']
+        fields = ['student_picture', 'student_class','gender']
         
 class PaymentForm(forms.ModelForm):
     class Meta:
         model=Payment
-        fields=('user_id','first_name', 'last_name',"amount","email","level","term",)
+        fields=('user_id','first_name', 'last_name',"amount","email","student_class","term",)

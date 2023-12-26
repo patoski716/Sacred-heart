@@ -16,12 +16,20 @@ class PaymentAdmin(admin.ModelAdmin):
   search_fields = ('email', 'first_name')
   list_per_page = 25
 
+class SchoolFeesAdmin(admin.ModelAdmin):
+  list_display = ('student_class', 'amount', 'created_at')
+  list_display_links = ('amount', 'student_class')
+  search_fields = ('student_class', 'amount')
+  list_per_page = 25
+
 class ProfileAdmin(admin.ModelAdmin):
-  list_display = ('user', 'level',)
-  list_display_links = ('user', 'level')
-  search_fields = ('level', 'user')
+  list_display = ('user', 'student_class',)
+  list_display_links = ('user', 'student_class')
+  search_fields = ('student_class', 'user')
   list_per_page = 25
 
 admin.site.register(Payment,PaymentAdmin)
 admin.site.register(Contact,ContactAdmin)
 admin.site.register(Profile,ProfileAdmin)
+admin.site.register(SchoolFees,SchoolFeesAdmin)
+

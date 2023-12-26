@@ -1,0 +1,113 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+{% block content %}
+<div class="container mt-4 mb-4 p-3 d-flex justify-content-center"> 
+    <div class="card p-4">
+         <div class=" image d-flex flex-column justify-content-center align-items-center"> 
+            <button class="btn btn-secondary"> <img src="{{ request.user.profile.student_picture.url }}" height="100" width="100" /></button>
+             <span class="name mt-3">{{request.user.first_name}} {{request.user.last_name}}</span> <span class="idd">{{request.user.username}}</span>
+              <div class="d-flex flex-row justify-content-center align-items-center gap-2"> 
+                
+                 
+            </div> 
+            <div class="d-flex flex-row justify-content-center align-items-center mt-3">
+                 
+                </div> 
+                <div class=" d-flex mt-2"> 
+                    <a href="{% url 'account_settings' %}">
+                        <button class="btn1 btn-dark">Edit Profile</button> 
+
+                    </a>
+                </div>
+                
+                 
+                 
+                </div> 
+            </div>
+</div>
+
+<style>
+   
+.card {
+    width: 350px;
+    background-color: #efefef;
+    border: none;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.image img {
+    transition: all 0.5s
+}
+
+.card:hover .image img {
+    transform: scale(1.5)
+}
+
+.btn {
+    height: 140px;
+    width: 140px;
+    border-radius: 50%
+}
+
+.name {
+    font-size: 22px;
+    font-weight: bold
+}
+
+.idd {
+    font-size: 14px;
+    font-weight: 600
+}
+
+.idd1 {
+    font-size: 12px
+}
+
+.number {
+    font-size: 22px;
+    font-weight: bold
+}
+
+.follow {
+    font-size: 12px;
+    font-weight: 500;
+    color: #444444
+}
+
+.btn1 {
+    height: 40px;
+    width: 150px;
+    border: none;
+    background-color: #000;
+    color: #aeaeae;
+    font-size: 15px
+}
+
+.text span {
+    font-size: 13px;
+    color: #545454;
+    font-weight: 500
+}
+
+.icons i {
+    font-size: 19px
+}
+
+hr .new1 {
+    border: 1px solid
+}
+
+.join {
+    font-size: 14px;
+    color: #a0a0a0;
+    font-weight: bold
+}
+
+.date {
+    background-color: #ccc
+}
+</style>
+    
+{% endblock content %}
+    

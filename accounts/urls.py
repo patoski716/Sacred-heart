@@ -15,6 +15,7 @@ urlpatterns = [
     path('success/<str:ref>/', views.verify_payment, name='verify-payment'),
     path('history/', views.history, name='history'),
     path('detail/<pk>/', views.detail, name="detail"),
+    path('profile/', views.profile, name="profile")
 
 ]
 

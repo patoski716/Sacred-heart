@@ -20,6 +20,20 @@ from .forms import UserEditForm, ProfileEditForm
 def home(request):
     return render(request,'home.html')
 
+def profile(request):
+    user_form = UserEditForm(instance=request.user)
+    profile_form = ProfileEditForm(instance=request.user.profile)
+
+    if request.method == 'POST':
+        user_form = UserEditForm(request.POST, instance=request.user)
+        profile_form = ProfileEditForm(request.POST, request.FILES, instance=request.user.profile)
+
+        if user_form.is_valid() and profile_form.is_valid():
+            user_form.save()
+            profile_form.save()
+            messages.success(request, 'Profile Saved Successfully')
+    return render(request,'dashboard/profile.html',{'user_form': user_form, 'profile_form': profile_form})
+
 def about(request):
     return render(request,'about.html')
 
@@ -49,7 +63,7 @@ def loginPage(request):
         if user is not None:
             login(request, user)
             messages.success(request, 'Login Successful')
-            return redirect('account_settings')  # Redirect to the edit view after successful login
+            return redirect('profile')  # Redirect to the edit view after successful login
         else:
             messages.info(request, 'Username OR password is incorrect')
     
@@ -104,6 +118,7 @@ def edit(request):
     return render(request, 'dashboard/account_settings.html', {'user_form': user_form, 'profile_form': profile_form})
 
 def initiate_payment(request: HttpRequest) -> HttpResponse:
+    school_fee=SchoolFees.objects.all()
     if request.method == 'POST':
         payment_form=forms.PaymentForm(request.POST)
         if payment_form.is_valid():
@@ -112,7 +127,7 @@ def initiate_payment(request: HttpRequest) -> HttpResponse:
             return render(request,'dashboard/makepayment.html',{'payment':payment,'paystack_public_key':settings.PAYSTACK_PUBLIC_KEY})
     else:
         payment_form=forms.PaymentForm()
-    return render(request,'dashboard/fees.html',{'payment_form':payment_form})
+    return render(request,'dashboard/fees.html',{'payment_form':payment_form,'school_fee':school_fee})
 
 def verify_payment(request: HttpRequest, ref:str) -> HttpResponse:
     payment = get_object_or_404(Payment, ref=ref)
